@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gorillaz</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/modern-business.css" rel="stylesheet">
+    <link href="/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+        * {box-sizing: border-box}
+
+        /* Full-width input fields */
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        input[type=text]:focus, input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+        }
+
+        /* Set a style for all buttons */
+        button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+        button:hover {
+            opacity:1;
+        }
+
+        /* Extra styles for the cancel button */
+        .cancelbtn {
+            padding: 14px 20px;
+            background-color: #f44336;
+        }
+
+        /* Float cancel and signup buttons and add an equal width */
+        .cancelbtn, .signupbtn {
+            float: left;
+            width: 50%;
+        }
+
+        /* Add padding to container elements */
+        .container {
+            padding: 16px;
+        }
+
+        /* Clear floats */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* Change styles for cancel button and signup button on extra small screens */
+        @media screen and (max-width: 300px) {
+            .cancelbtn, .signupbtn {
+                width: 100%;
+            }
+        }
+
+
+    </style>
+</head>
+
+<body onload='document.form1.text1.focus()'>
+
+    <!-- Navigation -->
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="login.html">Gorillaz</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="signup.html">Login</a>
+                    </li>
+                    <li>
+                        <a href="store.html">Store</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Members<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="">2D</a>
+                            </li>
+                            <li>
+                                <a href="">Murdoc</a>
+                            </li>
+                            <li>
+                                <a href="">Russell</a>
+                            </li>
+                            <li>
+                                <a href="">Noddle</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Sign Up
+                    <small>Please fill in this form to create an account</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="login.html">Home</a>
+                    </li>
+                    <li class="active">Sign Up</li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+
+
+
+        <!-- /.row -->
+
+
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+        <div class="container">
+
+            <form action="#" th:action="@{/saveUser}" th:object="${user}" method="POST">
+                <input type="text" th:field="*{firstName}" placeholder="User First Name" class="form-control mb-4 col-4">
+
+                <input type="text" th:field="*{lastName}" placeholder="User Last Name" class="form-control mb-4 col-4">
+
+                <label for="bandMem">Favorite Band Member:</label>
+                            <select name="bandMem" id="bandMem">
+                                <option value="russell">Russell</option>
+                                <option value="2-D">2-D</option>
+                                <option value="Noddles">Noddles</option>
+                                <option value="murdoc">Murdoc</option>
+                            </select>
+
+                <input type="text" th:field="*{email}" placeholder="User Email" class="form-control mb-4 col-4">
+
+                <button type="submit" class="btn btn-info col-2"> Create Account</button>
+            </form>
+
+
+<!--            <label for="Name"><b>Name</b></label>-->
+<!--            <input type="text" placeholder="Enter Name" name="Name"   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$">-->
+
+<!--            <label for="dog-names">Favorite Band Member:</label>-->
+<!--            <select name="band" id="band">-->
+<!--                <option value="russell">Russell</option>-->
+<!--                <option value="2-D">2-D</option>-->
+<!--                <option value="Noddles">Noddles</option>-->
+<!--                <option value="murdoc">Murdoc</option>-->
+<!--            </select>-->
+<!--                <br>-->
+<!--            <label for="email"><b>Email</b></label>-->
+<!--            <input type="text" placeholder="Enter Email" name="email" >-->
+
+<!--            <label for="psw"><b>Password</b></label>-->
+<!--            <input type="password" placeholder="Enter Password" name="psw" >-->
+
+<!--            <label for="psw-repeat"><b>Repeat Password</b></label>-->
+<!--            <input type="password" placeholder="Repeat Password" name="psw-repeat" >-->
+
+            <label>
+                <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+            </label>
+            <small>Have an account?</small>
+            <form>
+                <button formaction="login.html">Login</button>
+            </form>
+
+            <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+            </div>
+
+            <script>
+                // Get the modal
+                var modal = document.getElementById('id01');
+
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            </script>
+
+
+            <div class="clearfix">
+                <button type="button" class="cancelbtn">Cancel</button>
+                <button type="submit" class="signupbtn">Sign Up</button>
+            </div>
+        </div>
+
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Gorillaz</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+</body>
+
+</html>
