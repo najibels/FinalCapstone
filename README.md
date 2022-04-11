@@ -4,3 +4,4 @@
 - Pushed files to Git
 - Updated Models
 - Worked on Login
+- Estimate done 40%
