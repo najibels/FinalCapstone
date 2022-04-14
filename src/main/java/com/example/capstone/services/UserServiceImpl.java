@@ -1,6 +1,6 @@
 package com.example.capstone.services;
 
-import com.example.capstone.models.User;
+import com.example.capstone.entity.User;
 import com.example.capstone.repos.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
