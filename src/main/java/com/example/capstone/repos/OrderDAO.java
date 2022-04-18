@@ -1,8 +1,9 @@
 package com.example.capstone.repos;
+import com.example.capstone.entity.Album;
+import com.example.capstone.entity.Order;
 import com.example.capstone.entity.OrderDetail;
 import com.example.capstone.models.*;
-import com.example.capstone.models.Order;
-import com.example.capstone.models.OrderDetail;
+
 import com.example.capstone.pagination.PaginationResult;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -26,7 +27,7 @@ public class OrderDAO {
     private SessionFactory sessionFactory;
 
     @Autowired
-    private ProductDAO productDAO;
+    private AlbumDAO albumDAO;
 
     private int getMaxOrderNum() {
         String sql = "Select max(o.orderNum) from " + Order.class.getName() + " o ";
@@ -70,8 +71,8 @@ public class OrderDAO {
             detail.setQuanity(line.getQuantity());
 
             String code = line.getProductInfo().getCode();
-            Product product = this.productDAO.findProduct(code);
-            detail.setProduct(product);
+            Album album = this.albumDAO.findAlbum(code);
+            detail.setAlbum(album);
 
             session.persist(detail);
         }

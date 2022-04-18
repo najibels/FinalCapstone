@@ -55,7 +55,7 @@ public class AlbumForm {
         this.fileData = fileData;
     }
 
-    public boolean isNewAlbum() {
+    public static boolean isNewAlbum() {
         return isNewAlbum();
     }
 

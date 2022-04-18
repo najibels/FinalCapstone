@@ -1,6 +1,7 @@
 package com.example.capstone.repos;
 
 import com.example.capstone.entity.Album;
+import com.example.capstone.forms.AlbumForm;
 import com.example.capstone.models.ProductInfo;
 import com.example.capstone.pagination.PaginationResult;
 import org.hibernate.Session;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import java.util.Date;
 
 import javax.persistence.NoResultException;
 import java.io.IOException;
@@ -35,7 +37,7 @@ public class AlbumDAO {
     }
 
     public ProductInfo findProductInfo(String code) {
-        Album product = this.findProduct(code);
+        Album product = this.findAlbum(code);
         if (product == null) {
             return null;
         }
@@ -43,38 +45,38 @@ public class AlbumDAO {
     }
 
     @Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
-    public void save(ProductForm productForm) {
+    public void save(AlbumForm albumForm) {
 
         Session session = this.sessionFactory.getCurrentSession();
-        String code = productForm.getCode();
+        String code = albumForm.getCode();
 
-        Product product = null;
+        Album album = null;
 
         boolean isNew = false;
         if (code != null) {
-            product = this.findProduct(code);
+            album = this.findAlbum(code);
         }
-        if (product == null) {
+        if (album == null) {
             isNew = true;
-            product = new Product();
-            product.setCreateDate(new Date());
+            album = new Album();
+            album.setCreateDate(new Date());
         }
-        product.setCode(code);
-        product.setName(productForm.getName());
-        product.setPrice(productForm.getPrice());
+        album.setCode(code);
+        album.setName(albumForm.getName());
+        album.setPrice(albumForm.getPrice());
 
-        if (productForm.getFileData() != null) {
+        if (albumForm.getFileData() != null) {
             byte[] image = null;
             try {
-                image = productForm.getFileData().getBytes();
+                image = albumForm.getFileData().getBytes();
             } catch (IOException e) {
             }
             if (image != null && image.length > 0) {
-                product.setImage(image);
+                album.setImage(image);
             }
         }
         if (isNew) {
-            session.persist(product);
+            session.persist(album);
         }
         // If error in DB, Exceptions will be thrown out immediately
         session.flush();
@@ -84,7 +86,7 @@ public class AlbumDAO {
                                                        String likeName) {
         String sql = "Select new " + ProductInfo.class.getName() //
                 + "(p.code, p.name, p.price) " + " from "//
-                + Product.class.getName() + " p ";
+                + Album.class.getName() + " p ";
         if (likeName != null && likeName.length() > 0) {
             sql += " Where lower(p.name) like :likeName ";
         }

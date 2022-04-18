@@ -1,6 +1,7 @@
 package com.example.capstone.forms;
 
 import com.example.capstone.entity.Album;
+import com.example.capstone.repos.AlbumDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -12,7 +13,7 @@ import org.springframework.validation.Validator;
 public class ProductFormValidator implements Validator {
 
     @Autowired
-    private ProductDAO productDAO;
+    private AlbumDAO albumDAO;
 
     // This validator only checks for the ProductForm.
     @Override
@@ -34,7 +35,7 @@ public class ProductFormValidator implements Validator {
             if (code.matches("\\s+")) {
                 errors.rejectValue("code", "Pattern.albumForm.code");
             } else if (AlbumForm.isNewAlbum()) {
-                Album album = productDAO.findAlbum(code);
+                Album album = albumDAO.findAlbum(code);
                 if (album != null) {
                     errors.rejectValue("code", "Duplicate.productForm.code");
                 }
