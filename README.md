@@ -13,6 +13,13 @@ Add some description of the app (one or two paragraph)
 
 ## Daily Progress
 
+- 4/19(65% done)
+  - Took a step back application isnt running something wrong with "session factory " and "Transaction Manger"
+  - Can't seem to figure it out using online resources and class mates but can't seem to figure it out.
+  - Working on Static templates now
+  - worked on Admin Controller Tomorrow.
+
+
 - 4/16-4/18 (70% done)
   - Fixed bugs  on Daos
   - Working on Static templates now

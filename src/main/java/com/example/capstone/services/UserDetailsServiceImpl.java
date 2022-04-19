@@ -16,19 +16,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class UserDetailsServiceImpl<AccountDAO> implements UserDetailsService {
+public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
-    private com.example.capstone.repos.AccountDAO accountDAO;
+    private AccountDAO accountDAO;
 
     @Override
-    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        Account account = accountDAO.findAccount;
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Account account = accountDAO.findAccount(username);
         System.out.println("Account= " + account);
 
         if (account == null) {
             throw new UsernameNotFoundException("User " //
-                    + userName + " was not found in the database");
+                    + username + " was not found in the database");
         }
 
         // EMPLOYEE,MANAGER,..

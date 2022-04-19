@@ -13,6 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
+
     UserDetailsServiceImpl userDetailsService;
 
     @Bean
@@ -25,7 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 
         // Setting Service to find User in the database.
-        // And Setting PassswordEncoder
+        // And Setting PasswordEncoder
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
 
     }

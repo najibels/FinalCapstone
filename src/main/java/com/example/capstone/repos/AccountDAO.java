@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public class AccountDAO {
 
-    public Account findAccount;
     @Autowired
     private SessionFactory sessionFactory;
 
@@ -19,4 +18,5 @@ public class AccountDAO {
         Session session = this.sessionFactory.getCurrentSession();
         return session.find(Account.class, userName);
     }
+
 }
