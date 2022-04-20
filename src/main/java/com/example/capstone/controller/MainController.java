@@ -5,9 +5,14 @@ import com.example.capstone.forms.CustomerFormValidator;
 import com.example.capstone.models.CartInfo;
 import com.example.capstone.models.CustomerInfo;
 import com.example.capstone.models.ProductInfo;
-import com.example.capstone.pagination.PaginationResult;
-import com.example.capstone.repos.AlbumDAO;
-import com.example.capstone.repos.OrderDAO;
+//import com.example.capstone.pagination.PaginationResult;
+//import com.example.capstone.repos.AlbumDAO;
+import com.example.capstone.repos.AlbumRepository;
+import com.example.capstone.repos.OrderRepository;
+import com.example.capstone.services.AccountService;
+import com.example.capstone.services.AlbumService;
+import com.example.capstone.services.OrderService;
+import com.example.capstone.services.OrderServiceImpl;
 import com.example.capstone.utils.Utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,43 +26,28 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import java.util.List;
 
 @Controller
-@Transactional
+
 public class MainController {
 
-    @Autowired
-    private OrderDAO orderDAO;
+
+
+    private AccountService accountService;
+    private OrderService orderService;
+    private AlbumService albumService;
 
     @Autowired
-    private AlbumDAO albumDAO;
-
-    @Autowired
-    private CustomerFormValidator customerFormValidator;
-
-    @InitBinder
-    public void myInitBinder(WebDataBinder dataBinder) {
-        Object target = dataBinder.getTarget();
-        if (target == null) {
-            return;
-        }
-        System.out.println("Target=" + target);
-
-        // Case update quantity in cart
-        // (@ModelAttribute("cartForm") @Validated CartInfo cartForm)
-        if (target.getClass() == CartInfo.class) {
-
-        }
-
-        // Case save customer information.
-        // (@ModelAttribute @Validated CustomerInfo customerForm)
-        else if (target.getClass() == CustomerForm.class) {
-            dataBinder.setValidator(customerFormValidator);
-        }
-
+    public MainController(AccountService accountService, OrderService orderService, AlbumService albumService) {
+        this.accountService = accountService;
+        this.orderService = orderService;
+        this.albumService = albumService;
     }
+
+
+
+
 
     @RequestMapping("/403")
     public String accessDenied() {
@@ -76,17 +66,11 @@ public class MainController {
     }
 
     // Product List
-    @RequestMapping({ "/productList" })
-    public String listProductHandler(Model model, //
-                                     @RequestParam(value = "name", defaultValue = "") String likeName,
-                                     @RequestParam(value = "page", defaultValue = "1") int page) {
-        final int maxResult = 5;
-        final int maxNavigationPage = 10;
 
-        PaginationResult<ProductInfo> result = albumDAO.queryProducts(page, //
-                maxResult, maxNavigationPage, likeName);
-
-        model.addAttribute("paginationProducts", result);
+    @GetMapping("/productList")
+    public String getAlbums(Model model) {
+        List<Album> albums = albumService.getAllAlbums();
+        model.addAttribute("items", albums);
         return "productList";
     }
 
@@ -96,7 +80,7 @@ public class MainController {
 
         Album album = null;
         if (code != null && code.length() > 0) {
-            album = albumDAO.findAlbum(code);
+            album = albumService.getAlbumById(code);
         }
         if (album != null) {
 
@@ -116,7 +100,7 @@ public class MainController {
                                        @RequestParam(value = "code", defaultValue = "") String code) {
         Album album = null;
         if (code != null && code.length() > 0) {
-            album = albumDAO.findAlbum(code);
+            album = albumService.getAlbumById(code);
         }
         if (album != null) {
 
@@ -224,7 +208,7 @@ public class MainController {
             return "redirect:/shoppingCartCustomer";
         }
         try {
-            orderDAO.saveOrder(cartInfo);
+            orderService.saveOrder(cartInfo);
         } catch (Exception e) {
 
             return "shoppingCartConfirmation";

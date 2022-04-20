@@ -13,6 +13,13 @@ Add some description of the app (one or two paragraph)
 
 ## Daily Progress
 
+
+- 4/20(65% done)
+  - Reconfigured Repos, contollers and Services 
+  - Need to work on the static pages now
+  - Cant get pass the login now
+  - 
+
 - 4/19(65% done)
   - Took a step back application isnt running something wrong with "session factory " and "Transaction Manger"
   - Can't seem to figure it out using online resources and class mates but can't seem to figure it out.

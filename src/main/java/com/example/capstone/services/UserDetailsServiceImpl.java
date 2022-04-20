@@ -2,7 +2,7 @@ package com.example.capstone.services;
 
 import com.example.capstone.entity.Account;
 
-import com.example.capstone.repos.AccountDAO;
+import com.example.capstone.repos.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -17,13 +17,19 @@ import java.util.List;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
-
+    private AccountRepository accountRepository;
     @Autowired
-    private AccountDAO accountDAO;
+    public UserDetailsServiceImpl(AccountRepository accountRepository) {
+        this.accountRepository = accountRepository;
+    }
+
+
+
+
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Account account = accountDAO.findAccount(username);
+        Account account = accountRepository.findByUserName(username);
         System.out.println("Account= " + account);
 
         if (account == null) {
