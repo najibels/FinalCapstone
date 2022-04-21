@@ -15,8 +15,8 @@ Add some description of the app (one or two paragraph)
 - 4/21(75% done)
   - Finished Static templates.
   - Was able to finish cart check out process.
-  - Can't get order to save or images to show.
-  - Work on admin Functionality.
+  - Can't get order to save in database or images to show.
+  - Work on admin Functionality Tommorow .
 
 - 4/20(65% done)
   - Reconfigured Repos, contollers and Services 
