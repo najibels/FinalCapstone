@@ -2,9 +2,9 @@ package com.example.capstone.services;
 
 import com.example.capstone.entity.Album;
 import com.example.capstone.exceptions.AlbumExecption;
+import com.example.capstone.forms.AlbumForm;
 import com.example.capstone.repos.AlbumRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 //import javax.security.auth.login.AlbumNotFoundException;
@@ -28,11 +28,13 @@ public class AlbumServiceImpl implements AlbumService {
         return albumRepository.findAll();
     }
 
-
     @Override
-    public void saveAlbum(Album album) {
-        albumRepository.save(album);
+    public void saveAlbum(AlbumForm album) {
+
     }
+
+
+
 
 
     /**

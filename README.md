@@ -12,7 +12,11 @@ Add some description of the app (one or two paragraph)
 
 
 ## Daily Progress
-
+- 4/21(75% done)
+  - Finished Static templates.
+  - Was able to finish cart check out process.
+  - Can't get order to save or images to show.
+  - Work on admin Functionality.
 
 - 4/20(65% done)
   - Reconfigured Repos, contollers and Services 
@@ -66,6 +70,7 @@ Add some description of the app (one or two paragraph)
 - As a  manager,I want to create and edit album information, so I can update the store if we have more products or have to change prices.
 
 ## Lessons Learned
-- 
+- To use Spring JPA over Spring Hibernate
 
 ## Technical challenges
+-COnverting From Spring Hibernate to Spring JPA

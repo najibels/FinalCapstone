@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Gorillaz</title>
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../static/css/modern-business.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/modern-business.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="login.css" rel="stylesheet" type="text/css">
     <style>
         body {font-family: Arial, Helvetica, sans-serif;}
         * {box-sizing: border-box}
@@ -174,22 +173,52 @@
 <script src="js/bootstrap.min.js"></script>
 
 
-<form action="/action_page.php" method="post">
 
+<div class="page-title">Login (For Employee, Manager)</div>
 
-    <div class="container">
-        <form th:action="@{/login}" method="post">
-            <div><label> User Name : <input type="text" name="email"/> </label></div>
-            <div><label> Password: <input type="password" name="password"/> </label></div>
-            <div><input type="submit" value="Sign In"/></div>
-        </form>
-    </div>
+<div class="login-container">
+    <h3>Enter username and password</h3>
+    <br>
+    <!-- /login?error=true -->
+    <th:block th:if="${#session != null && #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}">
+        <div th:if= "${#request.getParameter('error') == 'true'}"
+             style="color: red; margin: 10px 0px;">
+            Login Failed!!!<br /> Reason :
+            <span th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}"></span>
+        </div>
+    </th:block>
 
-    <div class="container" style="background-color:#f1f1f1">
+    <form method="POST"
+          th:action="@{/j_spring_security_check}">
+        <table>
+            <tr>
+                <td>User Name *</td>
+                <td><input name="userName" /></td>
+            </tr>
+            <tr>
+                <td>Password *</td>
+                <td><input type="password" name="password" /></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <input type="submit" value="Login" />
+                    <input type="reset"  value="Reset" />
+                </td>
+            </tr>
+        </table>
+    </form>
 
-        <span class="psw">Don't have an account? <a href="#"> Signup</a></span>
-    </div>
-</form>
+    <span class="error-message" th:utext="${error}"></span>
+</div>
+
+<div style="text-align:left">
+    <h3>User/Password:</h3>
+    <ul>
+        <li>employee1/123</li>
+        <li>manager1/123</li>
+    </ul>
+</div>
 
 <hr>
 

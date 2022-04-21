@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Gorillaz</title>
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../static/css/modern-business.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/modern-business.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="login.css" rel="stylesheet" type="text/css">
+
     <style>
         body {font-family: Arial, Helvetica, sans-serif;}
         * {box-sizing: border-box}
@@ -172,21 +172,55 @@
 
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
-<th:block th:include="/_header"></th:block>
-<th:block th:include="/_menu"></th:block>
 
-<div class="page-title">Account Info</div>
-<div class="account-container">
-    <ul>
-        <li>User Name: <span th:utext="${#request.userPrincipal.name}"></span></li>
-        <li>
-            Role:
-            <ul>
-                <li th:each="auth : ${userDetails.authorities}" th:utext="${auth.authority}"></li>
-            </ul>
-        </li>
-    </ul>
-</div>
+<div class="page-title">Enter Customer Information</div>
+
+<form method="POST" th:object = "${customerForm}" th:action="@{/shoppingCartCustomer}">
+
+    <table>
+        <tr>
+            <td>Name *</td>
+            <td><input th:field="*{name}" /></td>
+            <td>
+                  <span class="error-message"
+                        th:if="${#fields.hasErrors('name')}" th:errors="*{name}">..</span>
+            </td>
+        </tr>
+        <tr>
+            <td>Email *</td>
+            <td><input th:field="*{email}" /></td>
+            <td>
+                  <span class="error-message"
+                        th:if="${#fields.hasErrors('email')}" th:errors="*{email}">..</span>
+            </td>
+        </tr>
+        <tr>
+            <td>Phone *</td>
+            <td><input th:field="*{phone}" /></td>
+            <td>
+                  <span class="error-message"
+                        th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">..</span>
+            </td>
+        </tr>
+        <tr>
+            <td>Address *</td>
+            <td><input th:field="*{address}" /></td>
+            <td>
+                  <span class="error-message"
+                        th:if="${#fields.hasErrors('address')}" th:errors="*{address}">..</span>
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><input type="submit" value="Submit" /> <input type="reset"
+                                                              value="Reset" /></td>
+        </tr>
+    </table>
+
+</form>
+
+
+
 
 
 

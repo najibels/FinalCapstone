@@ -26,6 +26,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -65,12 +67,13 @@ public class MainController {
         return "about";
     }
 
+
     // Product List
 
     @GetMapping("/productList")
     public String getAlbums(Model model) {
         List<Album> albums = albumService.getAllAlbums();
-        model.addAttribute("items", albums);
+        model.addAttribute("albums", albums);
         return "productList";
     }
 
@@ -235,18 +238,18 @@ public class MainController {
         return "shoppingCartFinalize";
     }
 
-//    @RequestMapping(value = { "/productImage" }, method = RequestMethod.GET)
-//    public void productImage(HttpServletRequest request, HttpServletResponse response, Model model,
-//                             @RequestParam("code") String code) throws IOException {
-//        Album album= null;
-//        if (code != null) {
-//            album = this.albumDAO.findAlbum(code);
-//        }
-//        if (album != null && album.getImage() != null) {
-//            response.setContentType("image/jpeg, image/jpg, image/png, image/gif");
-//            response.getOutputStream().write(album.getImage());
-//        }
-//        response.getOutputStream().close();
-//    }
+    @RequestMapping(value = { "/productImage" }, method = RequestMethod.GET)
+    public void productImage(HttpServletRequest request, HttpServletResponse response, Model model,
+                             @RequestParam("code") String code) throws IOException {
+        Album album= null;
+        if (code != null) {
+            album = this.albumService.getAlbumById(code);
+        }
+        if (album != null && album.getImage() != null) {
+            response.setContentType("image/jpeg, image/jpg, image/png, image/gif");
+            response.getOutputStream().write(album.getImage());
+        }
+        response.getOutputStream().close();
+    }
 
 }

@@ -28,8 +28,8 @@ public class Album implements Serializable {
     @Column(name = "Price", nullable = false)
     private double price;
 
-    @Lob
-    @Column(name = "Image", length = Integer.MAX_VALUE, nullable = true)
+
+    @Column(name = "Image", length = 255, nullable = false)
     private byte[] image;
 
     @Temporal(TemporalType.TIMESTAMP)
