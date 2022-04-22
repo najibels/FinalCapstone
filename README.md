@@ -12,6 +12,12 @@ Add some description of the app (one or two paragraph)
 
 
 ## Daily Progress
+- [Rubric Progress](https://docs.google.com/document/d/1ZbVkJttdXHiQVjiffhGwbZS45-2beWKIb5-VGY7gfB4/edit)
+
+- 4/22(75% done)
+  - Finished Crud operations for Accounts
+  - Need to work on styling as well as Cart Saving to database
+
 - 4/21(75% done)
   - Finished Static templates.
   - Was able to finish cart check out process.
@@ -69,8 +75,21 @@ Add some description of the app (one or two paragraph)
 ### Manager
 - As a  manager,I want to create and edit album information, so I can update the store if we have more products or have to change prices.
 
+## Technical Archeticure
+
+
+## DataBase Schema
+
 ## Lessons Learned
 - To use Spring JPA over Spring Hibernate
+- To create a clear plan and use of  application before starting 
+- Ask for help when stuck and to make user resources online and people
+- Better understanding of individual Project management 
 
 ## Technical challenges
--COnverting From Spring Hibernate to Spring JPA
+-Converting From Spring Hibernate to Spring JPA
+- Connecting front end to back end (ThymeLeaf)
+- CSS/Styling issues
+
+## What additional features could be added in the future
+- Payment options

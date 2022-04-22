@@ -1,5 +1,6 @@
 package com.example.capstone;
 
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -34,6 +35,10 @@ public class CapstoneApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(CapstoneApplication.class, args);
+    }
+    @Bean
+    public CommandLineRunner commandLineRunner() {
+        return args -> System.out.println("My application got started!!");
     }
 
 

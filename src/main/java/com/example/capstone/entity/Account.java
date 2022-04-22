@@ -2,10 +2,7 @@ package com.example.capstone.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Accounts")
@@ -16,7 +13,18 @@ public class Account implements Serializable {
     public static final String ROLE_MANAGER = "MANAGER";
     public static final String ROLE_EMPLOYEE = "EMPLOYEE";
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private long id;
+
     @Column(name = "User_Name", length = 20, nullable = false)
     private String userName;
 

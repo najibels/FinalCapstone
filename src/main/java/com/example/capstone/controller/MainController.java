@@ -202,7 +202,7 @@ public class MainController {
 
     public String shoppingCartConfirmationSave(HttpServletRequest request, Model model) {
         CartInfo cartInfo = Utils.getCartInSession(request);
-
+         System.out.println(cartInfo.toString());
         if (cartInfo.isEmpty()) {
 
             return "redirect:/shoppingCart";
@@ -219,6 +219,7 @@ public class MainController {
 
         // Remove Cart from Session.
         Utils.removeCartInSession(request);
+        orderService.saveOrder(cartInfo);
 
         // Store last cart.
         Utils.storeLastOrderedCartInSession(request, cartInfo);
