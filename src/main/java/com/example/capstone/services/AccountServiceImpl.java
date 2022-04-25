@@ -4,6 +4,9 @@ import com.example.capstone.entity.Account;
 import com.example.capstone.repos.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.security.auth.login.AccountNotFoundException;
@@ -16,6 +19,12 @@ public class AccountServiceImpl implements AccountService {
 
     private AccountRepository accountRepository;
     private Account account;
+
+//    @Autowired
+//    private AccountRepository accountRepository;
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
     @Autowired
     public AccountServiceImpl(AccountRepository accountRepository) {
@@ -65,5 +74,20 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public void deleteAccountById(long id) {
         accountRepository.deleteById(id);
+    }
+
+    @Override
+    public Account findByUserName(String userName) {
+        return accountRepository.findByUserName(userName);
+    }
+
+    @Override
+    public Account save(AccountRegistrationDTO registration) {
+        return null;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return null;
     }
 }

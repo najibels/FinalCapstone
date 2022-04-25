@@ -1,11 +1,12 @@
 package com.example.capstone.services;
 
 import com.example.capstone.entity.Account;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import javax.security.auth.login.AccountNotFoundException;
 import java.util.List;
 
-public interface AccountService {
+public interface AccountService extends UserDetailsService {
     List<Account> getAllAccounts();
 
     void saveAccount(Account account);
@@ -15,5 +16,8 @@ public interface AccountService {
     Account getAccountByName(String name) throws AccountNotFoundException;
 
     void deleteAccountById(long id);
+
+    Account findByUserName(String userName);
+    Account save(AccountRegistrationDTO registration);
 }
 

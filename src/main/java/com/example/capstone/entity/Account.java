@@ -1,17 +1,43 @@
 package com.example.capstone.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "Accounts")
-public class Account implements Serializable {
+public class Account  {
 
-    private static final long serialVersionUID = -2054386655979281969L;
 
-    public static final String ROLE_MANAGER = "MANAGER";
-    public static final String ROLE_EMPLOYEE = "EMPLOYEE";
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "account_roles",
+            joinColumns = @JoinColumn(
+                    name = "account_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(
+                    name = "account_id", referencedColumnName = "id"))
+    private Collection<Role> roles;
+
+    public Account(Collection<Role> roles, long id, String userName, String encrytedPassword) {
+        this.roles = roles;
+        this.id = id;
+        this.userName = userName;
+        this.encrytedPassword = encrytedPassword;
+    }
+
+    public Account(Collection<Role> roles, long id, String userName, String encrytedPassword, String userRole) {
+        this.roles = roles;
+        this.id = id;
+        this.userName = userName;
+        this.encrytedPassword = encrytedPassword;
+        this.userRole = userRole;
+    }
+
+    public Account() {
+
+    }
 
     public long getId() {
         return id;
@@ -31,8 +57,8 @@ public class Account implements Serializable {
     @Column(name = "Encryted_Password", length = 128, nullable = false)
     private String encrytedPassword;
 
-    @Column(name = "Active", length = 1, nullable = false)
-    private boolean active;
+//    @Column(name = "Active", length = 1, nullable = false)
+//    private boolean active;
 
     @Column(name = "User_Role", length = 20, nullable = false)
     private String userRole;
@@ -53,13 +79,13 @@ public class Account implements Serializable {
         this.encrytedPassword = encrytedPassword;
     }
 
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
-    }
+//    public boolean isActive() {
+//        return active;
+//    }
+//
+//    public void setActive(boolean active) {
+//        this.active = active;
+//    }
 
     public String getUserRole() {
         return userRole;
@@ -71,7 +97,11 @@ public class Account implements Serializable {
 
     @Override
     public String toString() {
-        return "[" + this.userName + "," + this.encrytedPassword + "," + this.userRole + "]";
+        return "Account{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", encrytedPassword='" + encrytedPassword + '\'' +
+                ", userRole='" + userRole + '\'' +
+                '}';
     }
-
 }
