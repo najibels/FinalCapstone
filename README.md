@@ -1,7 +1,7 @@
 
 ## Vinyl Ecommerce App
 
-Add some description of the app (one or two paragraph)
+This app is band site for the band Gorillaz and it doubles as an en ecomerce store. In this app users are able to browse the g
 
 - [Daily Progress](#Daily-Progess)
 - [User Stories](#User-Stories)
@@ -81,15 +81,19 @@ Add some description of the app (one or two paragraph)
 ## DataBase Schema
 
 ## Lessons Learned
-- To use Spring JPA over Spring Hibernate
-- To create a clear plan and use of  application before starting 
-- Ask for help when stuck and to make user resources online and people
-- Better understanding of individual Project management 
+- To use Spring JPA over Spring Hibernate.
+- Planning is important .It is important To create a clear plan and use of  application before starting or you can find your self in a confusing position.
+- Ask for help when stuck and to make use of  resources online and people.
+- Better understanding of individual Project management.
+- Have better task prioritization.
 
 ## Technical challenges
--Converting From Spring Hibernate to Spring JPA
-- Connecting front end to back end (ThymeLeaf)
-- CSS/Styling issues
+-Converting From Spring Hibernate to Spring JPA.
+- Connecting front end to back end (ThymeLeaf).
+- CSS/Styling issues.
+- Getting Images to display from database.
+- Getting user roles to work.
+- Learning ThymeLeaf on the fly
 
 ## What additional features could be added in the future
 - Payment options
