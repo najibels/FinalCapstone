@@ -17,22 +17,21 @@ public class Account  {
             joinColumns = @JoinColumn(
                     name = "account_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(
-                    name = "account_id", referencedColumnName = "id"))
+                    name = "role_id", referencedColumnName = "id"))
     private Collection<Role> roles;
+
+    public Account( long id, String userName, String encrytedPassword) {
+
+        this.id = id;
+        this.userName = userName;
+        this.encrytedPassword = encrytedPassword;
+    }
 
     public Account(Collection<Role> roles, long id, String userName, String encrytedPassword) {
         this.roles = roles;
         this.id = id;
         this.userName = userName;
         this.encrytedPassword = encrytedPassword;
-    }
-
-    public Account(Collection<Role> roles, long id, String userName, String encrytedPassword, String userRole) {
-        this.roles = roles;
-        this.id = id;
-        this.userName = userName;
-        this.encrytedPassword = encrytedPassword;
-        this.userRole = userRole;
     }
 
     public Account() {
@@ -60,8 +59,7 @@ public class Account  {
 //    @Column(name = "Active", length = 1, nullable = false)
 //    private boolean active;
 
-    @Column(name = "User_Role", length = 20, nullable = false)
-    private String userRole;
+
 
     public String getUserName() {
         return userName;
@@ -87,12 +85,14 @@ public class Account  {
 //        this.active = active;
 //    }
 
-    public String getUserRole() {
-        return userRole;
+
+
+    public Collection<Role> getRoles() {
+        return roles;
     }
 
-    public void setUserRole(String userRole) {
-        this.userRole = userRole;
+    public void setRoles(Collection<Role> roles) {
+        this.roles = roles;
     }
 
     @Override
@@ -101,7 +101,6 @@ public class Account  {
                 "id=" + id +
                 ", userName='" + userName + '\'' +
                 ", encrytedPassword='" + encrytedPassword + '\'' +
-                ", userRole='" + userRole + '\'' +
                 '}';
     }
 }

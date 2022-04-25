@@ -187,7 +187,7 @@
              th:each="cartLineInfo, varStatus : ${cartForm.cartLines}">
             <ul>
                 <li><img class="product-image"
-                         th:src="@{|/productImage?code=${cartLineInfo.productInfo.code}|}" />
+                         th:src="@{cartLineInfo.productInfo.image}" />
                 </li>
                 <li>Code: <span th:utext="${cartLineInfo.productInfo.code}"></span>
                     <input type="hidden"

@@ -1,6 +1,7 @@
 package com.example.capstone.controller;
 
 import com.example.capstone.entity.Account;
+import com.example.capstone.services.AccountRegistrationDTO;
 import com.example.capstone.services.AccountService;
 //import com.example.myfirstfullstack.models.Account;
 //import com.example.myfirstfullstack.services.AccountService;
@@ -30,6 +31,8 @@ public class AccountController {
     public AccountController(AccountService accountService) {
         this.accountService = accountService;
     }
+
+
 
     @GetMapping("/accounts")
     public String getAllAccounts(Model model) {

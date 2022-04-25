@@ -1,238 +1,78 @@
-<!doctype html>
-<html lang="en" class="no-js">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css"
+          th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
 
-    <title>Gorillaz</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/modern-business.css" rel="stylesheet">
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <style>
-        body {font-family: Arial, Helvetica, sans-serif;}
-        * {box-sizing: border-box}
-
-        /* Full-width input fields */
-        input[type=text], input[type=password] {
-            width: 100%;
-            padding: 15px;
-            margin: 5px 0 22px 0;
-            display: inline-block;
-            border: none;
-            background: #f1f1f1;
-        }
-
-        input[type=text]:focus, input[type=password]:focus {
-            background-color: #ddd;
-            outline: none;
-        }
-
-        hr {
-            border: 1px solid #f1f1f1;
-            margin-bottom: 25px;
-        }
-
-        /* Set a style for all buttons */
-        button {
-            background-color: #04AA6D;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            opacity: 0.9;
-        }
-
-        button:hover {
-            opacity:1;
-        }
-
-        /* Extra styles for the cancel button */
-        .cancelbtn {
-            padding: 14px 20px;
-            background-color: #f44336;
-        }
-
-        /* Float cancel and signup buttons and add an equal width */
-        .cancelbtn, .signupbtn {
-            float: left;
-            width: 50%;
-        }
-
-        /* Add padding to container elements */
-        .container {
-            padding: 16px;
-        }
-
-        /* Clear floats */
-        .clearfix::after {
-            content: "";
-            clear: both;
-            display: table;
-        }
-
-        /* Change styles for cancel button and signup button on extra small screens */
-        @media screen and (max-width: 300px) {
-            .cancelbtn, .signupbtn {
-                width: 100%;
-            }
-        }
-
-
-    </style>
+    <title>Registration</title>
 </head>
-
 <body>
 
-<!-- Navigation -->
-<!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span> <span
+                    class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="login.html">Gorillaz</a>
+            <a class="navbar-brand" href="#" th:href="@{/}">Registration and
+                Login Module</a>
         </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="about.html">About</a>
-                </li>
-                <li>
-                    <a href="signup.html">Login</a>
-                </li>
-                <li>
-                    <a href="productList.html">Store</a>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Members<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="">2D</a>
-                        </li>
-                        <li>
-                            <a href="">Murdoc</a>
-                        </li>
-                        <li>
-                            <a href="">Russell</a>
-                        </li>
-                        <li>
-                            <a href="">Noddle</a>
-                        </li>
-
-                    </ul>
-                </li>
-
-
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
     </div>
-    <!-- /.container -->
 </nav>
+<br>
+<br>
 
-<!-- Page Content -->
 <div class="container">
 
-    <!-- Page Heading/Breadcrumbs -->
     <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">Login
-                <small>Please login</small>
-            </h1>
-            <ol class="breadcrumb">
-                <li><a href="login.html">Home</a>
-                </li>
-                <li class="active">Login</li>
-            </ol>
+        <div class="col-md-6 col-md-offset-3">
+            <h1>Login page</h1>
+            <form th:action="@{/login}" method="post">
+                <div th:if="${param.error}">
+                    <div class="alert alert-danger">Invalid username or
+                        password.</div>
+                </div>
+                <div th:if="${param.logout}">
+                    <div class="alert alert-info">You have been logged out.</div>
+                </div>
+                <div class="form-group">
+                    <label for="username">UserName</label>: <input type="text"
+                                                                id="username" name="username" class="form-control"
+                                                                autofocus="autofocus" placeholder="Username" />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>: <input type="password"
+                                                                   id="password" name="password" class="form-control"
+                                                                   placeholder="Password" />
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <input type="submit" name="login-submit" id="login-submit"
+                                   class="form-control btn btn-primary" value="Log In" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                 <span>New user? <a href="/" th:href="@{/signup}">Register
+                       here</a></span>
+                </div>
+            </form>
         </div>
     </div>
-    <!-- /.row -->
-
-
-
-    <!-- /.row -->
-
-
-
 </div>
-<!-- /.container -->
-
-<!-- jQuery -->
-<script src="js/jquery.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
-
-
-
-<div class="page-title">Login (For Employee, Manager)</div>
-
-<div class="login-container">
-    <h3>Enter username and password</h3>
-    <br>
-    <!-- /login?error=true -->
-    <th:block th:if="${#session != null && #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}">
-        <div th:if= "${#request.getParameter('error') == 'true'}"
-             style="color: red; margin: 10px 0px;">
-            Login Failed!!!<br /> Reason :
-            <span th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}"></span>
-        </div>
-    </th:block>
-
-    <form method="POST"
-          th:action="@{/j_spring_security_check}">
-        <table>
-            <tr>
-                <td>User Name *</td>
-                <td><input name="userName" /></td>
-            </tr>
-            <tr>
-                <td>Password *</td>
-                <td><input type="password" name="password" /></td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>
-                    <input type="submit" value="Login" />
-                    <input type="reset"  value="Reset" />
-                </td>
-            </tr>
-        </table>
-    </form>
-
-    <span class="error-message" th:utext="${error}"></span>
-</div>
-
-<div style="text-align:left">
-    <h3>User/Password:</h3>
-    <ul>
-        <li>employee1/123</li>
-        <li>manager1/123</li>
-    </ul>
-</div>
-
-<hr>
-
-<!-- Footer -->
-<footer>
-    <div class="row">
-        <div class="col-lg-12">
-            <p>Copyright &copy; Gorillaz</p>
-        </div>
-    </div>
-</footer>
-
-
+<script type="text/javascript"
+        th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+<script type="text/javascript"
+        th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
 
 </body>
-
 </html>
+

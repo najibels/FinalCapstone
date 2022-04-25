@@ -15,6 +15,8 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.aspectj.weaver.tools.cache.SimpleCacheFactory.enabled;
+
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
     private AccountRepository accountRepository;
@@ -38,16 +40,15 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
 
         // EMPLOYEE,MANAGER,..
-        String role = account.getUserRole();
+//        String role = account.getUserRole();
 
         List<GrantedAuthority> grantList = new ArrayList<GrantedAuthority>();
 
         // ROLE_EMPLOYEE, ROLE_MANAGER
-        GrantedAuthority authority = new SimpleGrantedAuthority(role);
+//        GrantedAuthority authority = new SimpleGrantedAuthority(role);
 
-        grantList.add(authority);
+//        grantList.add(authority);
 
-        boolean enabled = account.isActive();
         boolean accountNonExpired = true;
         boolean credentialsNonExpired = true;
         boolean accountNonLocked = true;
