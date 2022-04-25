@@ -209,7 +209,7 @@
         <ul>
             <li>
                 <img class="product-image"
-                     src="@{|/productImage?code=${cartLineInfo.productInfo.code}|}" />
+                     th:src="${cartLineInfo.productInfo.image}" style="width: 15rem;" />
             </li>
             <li>
                 Code: <span th:utext="${cartLineInfo.productInfo.code}"></span>

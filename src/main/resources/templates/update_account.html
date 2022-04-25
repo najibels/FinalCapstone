@@ -21,7 +21,9 @@
 
     <input type="text" th:field="*{userName}" class="form-control mb-4 col-4">
 
-    <input type="text" th:field="*{userRole}" class="form-control mb-4 col-4">
+    <input type="hidden" th:field="*{roles}" class="form-control mb-4 col-4">
+    <input type="hidden" th:field="*{encrytedPassword}" class="form-control mb-4 col-4">
+
 
 
     <button type="submit" class="btn btn-info col-2"> Update Account</button>

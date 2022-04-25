@@ -14,6 +14,12 @@ This app is band site for the band Gorillaz and it doubles as an en ecomerce sto
 ## Daily Progress
 - [Rubric Progress](https://docs.google.com/document/d/1ZbVkJttdXHiQVjiffhGwbZS45-2beWKIb5-VGY7gfB4/edit)
 
+
+- 4/22(85% done)
+- Finished Crud operations for Accounts officially
+- Working on Tests and CSS styling now.
+- Need to work on Wire Frames.
+- 
 - 4/22(75% done)
   - Finished Crud operations for Accounts
   - Need to work on styling as well as Cart Saving to database
@@ -22,7 +28,7 @@ This app is band site for the band Gorillaz and it doubles as an en ecomerce sto
   - Finished Static templates.
   - Was able to finish cart check out process.
   - Can't get order to save in database or images to show.
-  - Work on admin Functionality Tommorow .
+  - Work on admin Functionality Tomorrow .
 
 - 4/20(65% done)
   - Reconfigured Repos, contollers and Services 
@@ -32,7 +38,7 @@ This app is band site for the band Gorillaz and it doubles as an en ecomerce sto
 
 - 4/19(65% done)
   - Took a step back application isnt running something wrong with "session factory " and "Transaction Manger"
-  - Can't seem to figure it out using online resources and class mates but can't seem to figure it out.
+  - Can't seem to figure it out using online resources and classmates but can't seem to figure it out.
   - Working on Static templates now
   - worked on Admin Controller Tomorrow.
 
@@ -41,7 +47,7 @@ This app is band site for the band Gorillaz and it doubles as an en ecomerce sto
   - Fixed bugs  on Daos
   - Working on Static templates now
   - Almost done with MainController 
-  - Will work on Admin Controller Tommorow.
+  - Will work on Admin Controller Tomorrow.
   
 - 4/15 (65% done)
   - Worked on forms
@@ -77,8 +83,12 @@ This app is band site for the band Gorillaz and it doubles as an en ecomerce sto
 
 ## Technical Archeticure
 
+<img src="Images/FRONT END.jpg">
+
 
 ## DataBase Schema
+
+<img src="Images/Screenshot 2022-04-25 164306.png">
 
 ## Lessons Learned
 - To use Spring JPA over Spring Hibernate.
