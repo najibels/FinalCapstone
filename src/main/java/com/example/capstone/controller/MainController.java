@@ -239,18 +239,18 @@ public class MainController {
         return "shoppingCartFinalize";
     }
 
-    @RequestMapping(value = { "/productImage" }, method = RequestMethod.GET)
-    public void productImage(HttpServletRequest request, HttpServletResponse response, Model model,
-                             @RequestParam("code") String code) throws IOException {
-        Album album= null;
-        if (code != null) {
-            album = this.albumService.getAlbumById(code);
-        }
-        if (album != null && album.getImage() != null) {
-            response.setContentType("image/jpeg, image/jpg, image/png, image/gif");
-            response.getOutputStream().write(album.getImage());
-        }
-        response.getOutputStream().close();
-    }
+//    @RequestMapping(value = { "/productImage" }, method = RequestMethod.GET)
+//    public void productImage(HttpServletRequest request, HttpServletResponse response, Model model,
+//                             @RequestParam("code") String code) throws IOException {
+//        Album album= null;
+//        if (code != null) {
+//            album = this.albumService.getAlbumById(code);
+//        }
+//        if (album != null && album.getImage() != null) {
+//            response.setContentType("image/jpeg, image/jpg, image/png, image/gif");
+//            response.getOutputStream().write(album.getImage());
+//        }
+//        response.getOutputStream().close();
+//    }
 
 }

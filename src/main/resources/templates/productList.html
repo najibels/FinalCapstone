@@ -87,7 +87,7 @@
 
     <div class="product-preview-container" >
         <ul th:each="album:${albums}">
-            <li><img th:src="@{${album.image}}"></li>
+            <li><div ><img th:src="@{${album.image}}" style="width: 15rem;"></div></li>
             <li>Code: <span th:text="${album.code}"></span></li>
             <li>Name: <span th:text="${album.name}"></span></li>
             <li>Price: <span th:text="${#numbers.formatDecimal(album.price,3,2,'COMMA')}"></span></li>

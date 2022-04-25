@@ -30,7 +30,7 @@ public class Album implements Serializable {
 
 
     @Column(name = "Image", length = 255, nullable = false)
-    private byte[] image;
+    private String image;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "Create_Date", nullable = false)
@@ -71,12 +71,13 @@ public class Album implements Serializable {
         this.createDate = createDate;
     }
 
-    public byte[] getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
+
 
 }
