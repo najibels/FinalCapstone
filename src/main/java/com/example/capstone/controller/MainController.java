@@ -67,6 +67,12 @@ public class MainController {
         return "about";
     }
 
+    @GetMapping("/account")
+    public String viewAccounts() {
+
+        return "accounts";
+    }
+
 
     // Product List
 

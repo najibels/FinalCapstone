@@ -1,7 +1,7 @@
 
 ## Vinyl Ecommerce App
 
-This app is band site for the band Gorillaz and it doubles as an en ecomerce store. In this app users are able to browse the g
+This app is band site for the band Gorillaz, and it doubles as an en ecommerce store. In this app users are able to browse the website while shopping. Mangers will be abe to update the store.
 
 - [Daily Progress](#Daily-Progess)
 - [User Stories](#User-Stories)
@@ -98,7 +98,7 @@ This app is band site for the band Gorillaz and it doubles as an en ecomerce sto
 - Have better task prioritization.
 
 ## Technical challenges
--Converting From Spring Hibernate to Spring JPA.
+- Converting From Spring Hibernate to Spring JPA.
 - Connecting front end to back end (ThymeLeaf).
 - CSS/Styling issues.
 - Getting Images to display from database.
@@ -107,3 +107,6 @@ This app is band site for the band Gorillaz and it doubles as an en ecomerce sto
 
 ## What additional features could be added in the future
 - Payment options
+
+##  Possible Connection to Optum.
+- Could be possiblly be used for medical orders for patients or practitioners.
