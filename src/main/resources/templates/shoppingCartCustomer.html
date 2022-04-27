@@ -149,9 +149,9 @@
                 <small>Please Enter Info</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="login.html">Home</a>
+                <li><a href="/">Home</a>
                 </li>
-                <li class="active">SHopping Cart</li>
+                <li class="active">Shopping Cart</li>
             </ol>
         </div>
     </div>
@@ -172,11 +172,11 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 
-<div class="page-title">Enter Customer Information</div>
+<div class="center">Enter Customer Information</div>
 
 <form method="POST" th:object = "${customerForm}" th:action="@{/shoppingCartCustomer}">
-
-    <table>
+    <div class="center">
+        <table style="margin-left:auto;margin-right:auto;">
         <tr>
             <td>Name *</td>
             <td><input th:field="*{name}" /></td>
@@ -215,6 +215,7 @@
                                                               value="Reset" /></td>
         </tr>
     </table>
+    </div>
 
 </form>
 

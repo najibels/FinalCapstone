@@ -99,6 +99,8 @@ public class MainController {
             ProductInfo productInfo = new ProductInfo(album);
 
             cartInfo.addProduct(productInfo, 1);
+            orderService.saveOrder(cartInfo);
+
         }
 
         return "redirect:/shoppingCart";
@@ -160,6 +162,7 @@ public class MainController {
         CustomerForm customerForm = new CustomerForm(customerInfo);
 
         model.addAttribute("customerForm", customerForm);
+
 
         return "shoppingCartCustomer";
     }

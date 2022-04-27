@@ -123,3 +123,12 @@ footer {
         height: 70%;
     }
 }
+.center {
+    text-align: center;
+}
+.customer-info-container {
+    text-align: left;
+    border: 1px solid #ccc;
+    padding: 0px 5px;
+}
+

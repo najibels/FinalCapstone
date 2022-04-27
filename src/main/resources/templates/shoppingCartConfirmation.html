@@ -172,25 +172,26 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 
-<div class="page-title">Confirmation</div>
-<div class="customer-info-container">
+<div class="center">Confirmation</div>
+<div class="center">
     <h3>Customer Information:</h3>
-    <ul>
+    <ul style="list-style-type:none;">
         <li>Name: <span th:utext="${myCart.customerInfo.name}"></span></li>
         <li>Email: <span th:utext="${myCart.customerInfo.email}"></span></li>
         <li>Phone: <span th:utext="${myCart.customerInfo.phone}"></span></li>
         <li>Address: <span th:utext="${myCart.customerInfo.address}"></span></li>
     </ul>
     <h3>Cart Summary:</h3>
-    <ul>
-        <li>Quantity: <span th:utext="${myCart.quantityTotal}"></span>$</li>
+    <ul style="list-style-type:none;">
+        <li>Quantity: <span th:utext="${myCart.quantityTotal}"></span></li>
         <li>Total:
             <span class="total"
-                  th:utext="${#numbers.formatDecimal(myCart.amountTotal,3,2,'COMMA')}">
+                  th:utext="${myCart.amountTotal}">
                </span>
         </li>
     </ul>
 </div>
+<div class="center">
 <form method="POST" th:action="@{/shoppingCartConfirmation}">
     <!-- Edit Cart -->
     <a class="navi-item" th:href="@{/shoppingCart}">
@@ -203,9 +204,10 @@
     <!-- Send/Save -->
     <input type="submit" value="Send" class="button-send-sc" />
 </form>
+</div>
 <div class="container">
     <div class="product-preview-container" th:each="cartLineInfo : ${myCart.cartLines}">
-        <ul>
+        <ul style="list-style-type:none;" class="center">
             <li>
                 <img class="product-image"
                      th:src="${cartLineInfo.productInfo.image}" style="width: 15rem;" />
@@ -218,13 +220,13 @@
             <li>Name: <span th:utext="${cartLineInfo.productInfo.name}"></span></li>
             <li>Price:
                 <span class="price"
-                      th:utext="${#numbers.formatDecimal(cartLineInfo.productInfo.price,3,2,'COMMA')}">
+                    th:utext="${cartLineInfo.productInfo.price}">
                   </span>
             </li>
             <li>Quantity: <span th:utext="${cartLineInfo.quantity}"></span></li>
             <li>Subtotal:
                 <span class="subtotal"
-                      th:utext="${#numbers.formatDecimal(cartLineInfo.amount,3,2,'COMMA')}">
+                      th:utext="${cartLineInfo.amount}">
                   </span>
             </li>
         </ul>

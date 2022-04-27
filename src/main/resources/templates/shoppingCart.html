@@ -172,7 +172,7 @@
 <script src="js/bootstrap.min.js"></script>
 
 
-<div class="page-title">My Cart</div>
+<div class="center">My Cart</div>
 
 <th:block th:if="${cartForm == null || cartForm.cartLines == null || cartForm.cartLines.empty}">
     <h2>There is no items in Cart</h2>
@@ -182,9 +182,9 @@
 <th:block th:if="${cartForm != null && cartForm.cartLines != null && !cartForm.cartLines.empty}">
     <form method="POST" th:object="${cartForm}" th:action="@{/shoppingCart}">
 
-        <div class="product-preview-container"
+        <div class="center"
              th:each="cartLineInfo, varStatus : ${cartForm.cartLines}">
-            <ul>
+            <ul style="list-style-type:none;">
                 <li><img class="product-image"
                          th:src="${cartLineInfo.productInfo.image}" style="width: 15rem;"/>
                 </li>
@@ -196,17 +196,17 @@
                 <li>Name: <span th:utext="${cartLineInfo.productInfo.name}"></span></li>
                 <li>Price:
                     <span class="price"
-                          th:utext="${#numbers.formatDecimal(cartLineInfo.productInfo.price,3,2,'COMMA')}">
+                          th:utext="${cartLineInfo.productInfo.price}">
                         </span>
                 </li>
-                <li>Quantity:
+                <li class="center">Quantity:
                     <input
                             th:name="|cartLines[${varStatus.index}].quantity|"
                             th:value="${cartLineInfo.quantity}" />
                 </li>
-                <li>Subtotal:
+                <li class="center">Subtotal: $
                     <span class="subtotal"
-                          th:utext="${#numbers.formatDecimal(cartLineInfo.amount,3,2,'COMMA')}">
+                          th:utext="${cartLineInfo.amount}">
                         </span>
                 </li>
                 <li>
@@ -218,11 +218,14 @@
         </div>
 
         <div style="clear: both"></div>
+        <div class="center">
         <input class="button-update-sc" type="submit" value="Update Quantity" />
         <a class="navi-item"
            th:href="@{/shoppingCartCustomer}">Enter Customer Info</a>
         <a class="navi-item"
            th:href="@{/productList}">Continue Buy</a>
+        </div>
+
     </form>
 </th:block>
 
