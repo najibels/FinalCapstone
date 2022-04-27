@@ -13,9 +13,15 @@ This app is band site for the band Gorillaz, and it doubles as an en ecommerce s
 
 ## Daily Progress
 - [Rubric Progress](https://docs.google.com/document/d/1ZbVkJttdXHiQVjiffhGwbZS45-2beWKIb5-VGY7gfB4/edit)
+- 4/26(100% done) IM DONE!
+- Finished Crud operations 
+- Finished Styling Issues
+- Posted WireFrames
+- Cleaned up all issues
 
 
-- 4/22(85% done)
+
+- 4/23(85% done)
 - Finished Crud operations for Accounts officially
 - Working on Tests and CSS styling now.
 - Need to work on Wire Frames.

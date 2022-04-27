@@ -85,22 +85,22 @@
   <!-- Intro Content -->
     <div class="page-title">Product List</div>
 
-    <div class="product-preview-container" >
+  <div class="col-sm-4 col-lg-4 item">
         <ul th:each="album:${albums}">
             <li><div ><img th:src="@{${album.image}}" style="width: 15rem;"></div></li>
             <li>Code: <span th:text="${album.code}"></span></li>
             <li>Name: <span th:text="${album.name}"></span></li>
-            <li>Price: <span th:text="${#numbers.formatDecimal(album.price,3,2,'COMMA')}"></span></li>
+            <li>Price: <span th:text="${album.price}"></span></li>
             <li>
               <a th:href="@{|/buyProduct?code=${album.code}|}">Buy Now</a>
             </li>
 <!--             For Manager edit Product-->
-            <th:block sec:authorize="hasAuthority('ROLE_MANAGER')">
-                <li>
-                    <a style="color:red;"
-                       th:href="@{|/admin/product?code=${album.code}|}">Edit Product</a>
-                </li>
-            </th:block>
+<!--            <th:block sec:authorize="hasAuthority('ROLE_MANAGER')">-->
+<!--                <li>-->
+<!--                    <a style="color:red;"-->
+<!--                       th:href="@{|/admin/product?code=${album.code}|}">Edit Product</a>-->
+<!--                </li>-->
+<!--            </th:block>-->
         </ul>
     </div>
 
