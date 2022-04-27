@@ -8,16 +8,26 @@ This app is band site for the band Gorillaz, and it doubles as an en ecommerce s
     - [User](#User)
     - [Employee](#Employee)
     - [Manager](#Manager)
-- [Jira](https://www.google.com/)
+- [Technical Architecture](#Technical-Architecture)
+- [DataBase Schema](#DataBase-Schema)
+- [Lessons Learned](#Lessons-Learned)
+- [Technical Challenges](#Technical-Challenges)
+- [WireFrames](#WireFrames)
+
+
+
+
+
 
 
 ## Daily Progress
 - [Rubric Progress](https://docs.google.com/document/d/1ZbVkJttdXHiQVjiffhGwbZS45-2beWKIb5-VGY7gfB4/edit)
+
 - 4/26(100% done) IM DONE!
-- Finished Crud operations 
-- Finished Styling Issues
-- Posted WireFrames
-- Cleaned up all issues
+  - Finished Crud operations 
+  - Finished Styling Issues
+  - Posted WireFrames
+  - Cleaned up all issues
 
 
 
@@ -37,9 +47,9 @@ This app is band site for the band Gorillaz, and it doubles as an en ecommerce s
   - Work on admin Functionality Tomorrow .
 
 - 4/20(65% done)
-  - Reconfigured Repos, contollers and Services 
+  - Reconfigured Repos, controllers and Services 
   - Need to work on the static pages now
-  - Cant get pass the login now
+  - Can't get pass the login now
   - 
 
 - 4/19(65% done)
@@ -63,7 +73,7 @@ This app is band site for the band Gorillaz, and it doubles as an en ecommerce s
 
 
 - 4/14(55% done)
-  - Finished Model and enity classes
+  - Finished Model and entity classes
   - Worked on Daos
   - Working on Forms and form validation 
  
@@ -87,7 +97,7 @@ This app is band site for the band Gorillaz, and it doubles as an en ecommerce s
 ### Manager
 - As a  manager,I want to create and edit album information, so I can update the store if we have more products or have to change prices.
 
-## Technical Archeticure
+## Technical Architecture
 
 <img src="Images/FRONT END.jpg">
 
@@ -103,7 +113,7 @@ This app is band site for the band Gorillaz, and it doubles as an en ecommerce s
 - Better understanding of individual Project management.
 - Have better task prioritization.
 
-## Technical challenges
+## Technical Challenges
 - Converting From Spring Hibernate to Spring JPA.
 - Connecting front end to back end (ThymeLeaf).
 - CSS/Styling issues.
@@ -115,7 +125,7 @@ This app is band site for the band Gorillaz, and it doubles as an en ecommerce s
 - Payment options
 
 ##  Possible Connection to Optum.
-- Could be possiblly be used for medical orders for patients or practitioners.
+- Could be possibly be used for medical orders for patients or practitioners.
 
 ## WireFrames
 <img src="WireFrames/IMG-3431.jpg">
